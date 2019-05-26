@@ -16,6 +16,7 @@ class Client
         	       System.out.println("1.chat 2.Calculation 3.Exit");
         	       String send = sc.nextLine();
         	       dos.writeUTF(send);
+		       dos.flush();
         	       if(send.equals("3"))
         	       {
         		      break;
@@ -24,12 +25,15 @@ class Client
         	       {
         		
         		      send = sc.nextLine();
-        		      dos.writeUTF(send);	
+        		      dos.writeUTF(send);
+			      dos.flush();
         	       }
         	       else if(send.trim().equals("2"))
         	       {
-				send = sc.nextLine();
-        		      dos.writeUTF(send);	
+			      System.out.println("format : operand<space>operator<space>operand");
+			      send = sc.nextLine();
+        		      dos.writeUTF(send);
+			      dos.flush();
         	       }
         	       String receive = dis.readUTF();
         	       System.out.println("Server : "+receive);
